@@ -34,7 +34,6 @@ router.put("/", (ctx) => {
 router.get("/", (ctx) => {
   ctx.body = getAllItem();
   ctx.set("context-Type", "application.json");
-
   ctx.status = 200;
 });
 

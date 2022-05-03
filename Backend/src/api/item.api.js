@@ -50,7 +50,6 @@ const updateItem = ({ id, name, price }) => {
  *@description viewInventroy
  */
 const getAllItem = () => {
-  console.log(items);
   return [...items.values()];
 };
 
