@@ -1,0 +1,40 @@
+const Router = require("@koa/router");
+const { saveItem, updateItem, getAllItem } = require("../api/item.api");
+
+const router = new Router({
+  prefix: "/item",
+});
+
+/*
+ *@route POST/item
+ *@description save Item
+ */
+router.post("/", (ctx) => {
+  const itemDetails = ctx.request.body;
+  ctx.body = saveItem(itemDetails);
+  ctx.set("content-type", "application.json");
+  ctx.status = 201;
+});
+
+/*
+ *@route PUT/item
+ *@description Update Item
+ */
+router.put("/", (ctx) => {
+  const itemDetails = ctx.request.body;
+  ctx.body = updateItem(itemDetails);
+  ctx.set("content-type", "application.json");
+  ctx.status = 201;
+});
+
+/*
+ *@route GET/item
+ *@description Update Item
+ */
+router.get("/", (ctx) => {
+  ctx.body = getAllItem();
+  ctx.set("content-type", "application.json");
+  ctx.status = 200;
+});
+
+module.exports = router;
