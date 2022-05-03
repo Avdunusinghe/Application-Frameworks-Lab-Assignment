@@ -5,7 +5,7 @@ var items = new Map();
 /*
  *@description AddItem
  */
-const saveItem = async ({ name, price }) => {
+const saveItem = ({ name, price }) => {
   try {
     const item = {
       id: uuidv4(),
@@ -24,7 +24,7 @@ const saveItem = async ({ name, price }) => {
 /*
  *@description editItem
  */
-const updateItem = async ({ id, name, price }) => {
+const updateItem = ({ id, name, price }) => {
   try {
     let itemsDetis = items.get(id);
 
@@ -49,7 +49,8 @@ const updateItem = async ({ id, name, price }) => {
 /*
  *@description viewInventroy
  */
-const getAllItem = async () => {
+const getAllItem = () => {
+  console.log(items);
   return [...items.values()];
 };
 

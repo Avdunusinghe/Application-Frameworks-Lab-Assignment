@@ -12,7 +12,7 @@ const router = new Router({
 router.post("/", (ctx) => {
   const itemDetails = ctx.request.body;
   ctx.body = saveItem(itemDetails);
-  ctx.set("content-type", "application.json");
+  ctx.set("context-Type", "application.json");
   ctx.status = 201;
 });
 
@@ -23,17 +23,18 @@ router.post("/", (ctx) => {
 router.put("/", (ctx) => {
   const itemDetails = ctx.request.body;
   ctx.body = updateItem(itemDetails);
-  ctx.set("content-type", "application.json");
+  ctx.set("context-Type", "application.json");
   ctx.status = 201;
 });
 
 /*
  *@route GET/item
- *@description Update Item
+ *@description Get All Item
  */
 router.get("/", (ctx) => {
   ctx.body = getAllItem();
-  ctx.set("content-type", "application.json");
+  ctx.set("context-Type", "application.json");
+
   ctx.status = 200;
 });
 

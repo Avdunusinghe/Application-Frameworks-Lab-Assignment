@@ -6,14 +6,14 @@ var users = new Map();
  *@description CreateProfile
  */
 
-const saveUser = async ({ name, email, mobileNumber, password }) => {
+const saveUser = ({ name, email, mobileNumber, password, role }) => {
   const user = {
     id: uuidv4(),
     name: name,
     email: email,
     mobileNumber: mobileNumber,
     password: password,
-    role: UserRole.CUSTOMER,
+    role: (role = 1 ? UserRole.CUSTOMER : UserRole.TRADER),
     createdOn: new Date(),
     updatedOn: new Date(),
   };
@@ -21,13 +21,29 @@ const saveUser = async ({ name, email, mobileNumber, password }) => {
   users.set(user.id, user);
 };
 
+/*
+ *@description viewCustomer
+ */
+const getClientsDetails = () => {
+  let customers = new Map();
+
+  for (const user of users.values()) {
+    if (user.role == UserRole.CUSTOMER) {
+      (user.password = null), customers.set(user.id, user);
+    }
+  }
+
+  return [...customers.values()];
+};
+
 //enum
 const UserRole = {
-  TRADER: 1,
-  CUSTOMER: 2,
+  CUSTOMER: 1,
+  TRADER: 2,
 };
 Object.freeze(UserRole);
 
 module.exports = {
   saveUser,
+  getClientsDetails,
 };
