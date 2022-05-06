@@ -5,6 +5,9 @@ class UserService {
   saveUser(userDetails) {
     return axios.post(`${apiUrl}user`, userDetails);
   }
+  getClientsDetails() {
+    return axios.get(`${apiUrl}user`);
+  }
 }
 
 export default new UserService();
