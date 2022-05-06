@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 const NavBar = () => {
   return (
     <div>
-      <h1>Se</h1>
+      <h1>Welcome AF Assignment 2 IT20025526 Dunusinghe.A.V</h1>
       <ul>
         <li>
           <Link to="/treder">Treder</Link>
@@ -16,6 +16,12 @@ const NavBar = () => {
         </li>
         <li>
           <Link to="/userList">User List</Link>
+        </li>
+        <li>
+          <Link to="/shopping">Shopping</Link>
+        </li>
+        <li>
+          <Link to="/promostion">Promotions</Link>
         </li>
       </ul>
       <Outlet></Outlet>
