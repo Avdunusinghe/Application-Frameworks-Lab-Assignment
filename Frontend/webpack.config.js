@@ -22,7 +22,10 @@ module.exports = {
         use: {
           loader: "babel-loader",
         },
+        enforce: "pre",
+        use: ["source-map-loader"],
       },
+
       {
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
