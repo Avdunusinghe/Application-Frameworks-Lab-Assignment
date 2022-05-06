@@ -1,6 +1,3 @@
-const { v4: uuidv4 } = require("uuid");
-
-var users = new Map();
 /*
  *SE3040 – Application Frameworks
  *Lab Assignment
@@ -8,6 +5,10 @@ var users = new Map();
  *Sri Lanka Institute Of Information Technology
  *Department Of Computer Science And Software Sngineering
  */
+const { v4: uuidv4 } = require("uuid");
+
+var users = new Map();
+
 /*
  *@description CreateProfile
  */

@@ -3,8 +3,9 @@
  *Lab Assignment
  *Author => Dunusinghe.A.V IT20025526
  *Sri Lanka Institute Of Information Technology
- *Department Of Computer Science And Software Sngineering
+ *Department Of Computer Science And Software Engineering
  */
+
 const { v4: uuidv4 } = require("uuid");
 
 var orders = new Map();
