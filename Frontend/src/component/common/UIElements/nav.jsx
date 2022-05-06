@@ -11,6 +11,9 @@ const NavBar = () => {
         <li>
           <Link to="/customer">Customer</Link>
         </li>
+        <li>
+          <Link to="/user">Create Profile</Link>
+        </li>
       </ul>
       <Outlet></Outlet>
     </div>

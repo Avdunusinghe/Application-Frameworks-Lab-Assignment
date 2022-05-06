@@ -36,10 +36,7 @@ const updateItem = ({ id, name, price }) => {
       };
 
       items.set(itemsDetis.id, item);
-
-      ctx.body = "Success";
     } else {
-      ctx.body = "Not Found";
     }
   } catch (error) {
     console.error(error);

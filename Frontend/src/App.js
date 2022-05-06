@@ -5,6 +5,7 @@ import Customer from "./component/customer";
 import ItemDetailsComponent from "./component/pages/treder/item-detail/item-detail";
 import ItemListComponent from "./component/pages/treder/item-list/item.list.component";
 import ItemUpdateComponent from "./component/pages/treder/update/item.update";
+import UserDetailsComponent from "./component/pages/user/user-detail/user-detail.component";
 
 const App = () => {
   return (
@@ -12,7 +13,7 @@ const App = () => {
       <NavBar></NavBar>
       <div>
         <Routes>
-          <Route path="/"></Route>
+          <Route path="/" element={<NavBar />}></Route>
           <Route path="treder" element={<ItemListComponent />}></Route>
           <Route
             path="treder/itemDetails"
@@ -20,6 +21,7 @@ const App = () => {
           ></Route>
           <Route path="customer" element={<Customer />}></Route>
           <Route path="treder/:id" element={<ItemUpdateComponent />}></Route>
+          <Route path="user" element={<UserDetailsComponent />}></Route>
         </Routes>
       </div>
     </div>

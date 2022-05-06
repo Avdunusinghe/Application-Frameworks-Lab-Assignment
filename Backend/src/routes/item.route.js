@@ -42,8 +42,10 @@ router.get("/", (ctx) => {
   ctx.status = 200;
 });
 
-//@route GET/item/id
-//@description get getitemByid
+/*
+ *@route GET/item/id
+ *@description get getitemByid
+ */
 router.get("/:id", (ctx) => {
   const id = ctx.params.id;
   ctx.body = getIemById(id);
