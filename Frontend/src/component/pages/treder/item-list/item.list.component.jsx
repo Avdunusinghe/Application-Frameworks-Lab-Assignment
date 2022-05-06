@@ -1,6 +1,6 @@
 import React, { Component, useCallback, useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
-
+import moment from "moment";
 import itemsService from "../../../../services/items.service";
 
 const ItemListComponent = () => {
@@ -33,6 +33,8 @@ const ItemListComponent = () => {
             <td>Actions</td>
             <th>Name</th>
             <th>Price</th>
+            <th>CreatedOn</th>
+            <th>UpdatedOn</th>
           </tr>
         </thead>
         <tbody>
@@ -49,6 +51,8 @@ const ItemListComponent = () => {
               </td>
               <td>{item.name}</td>
               <td>{item.price}</td>
+              <td>{moment(item.createdOn).format("YYYY-MM-DDTHH:mm")}</td>
+              <td>{moment(item.updatedOn).format("YYYY-MM-DDTHH:mm")}</td>
             </tr>
           ))}
         </tbody>

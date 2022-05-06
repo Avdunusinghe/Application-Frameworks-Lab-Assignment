@@ -1,6 +1,7 @@
 import React, { Component, useCallback, useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import userService from "../../../../services/user.service";
+import moment from "moment";
 
 const UserListComponent = () => {
   const [users, setUsers] = useState([]);
@@ -22,6 +23,8 @@ const UserListComponent = () => {
           <tr>
             <th>Name</th>
             <th>Mobile Number</th>
+            <th>CreatedOn</th>
+            <th>UpdatedOn</th>
           </tr>
         </thead>
         <tbody>
@@ -29,6 +32,8 @@ const UserListComponent = () => {
             <tr key={key}>
               <td>{user.name}</td>
               <td>{user.mobileNumber}</td>
+              <td>{moment(user.createdOn).format("YYYY-MM-DDTHH:mm")}</td>
+              <td>{moment(user.updatedOn).format("YYYY-MM-DDTHH:mm")}</td>
             </tr>
           ))}
         </tbody>
