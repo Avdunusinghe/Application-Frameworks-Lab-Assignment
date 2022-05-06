@@ -1,16 +1,14 @@
-import React, { Component, useCallback, useEffect, useState } from "react";
+import React, { Component, useState } from "react";
 import itemsService from "../../../../services/items.service";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-const TrederComponent = () => {
-  const [items, setItems] = useState([]);
+const ItemDetailsComponent = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
 
-  const getAllItems = useCallback(() => {
-    itemsService.getAllItems().then((response) => {
-      setItems(response.data);
-    });
-  }, []);
+  let navigate = useNavigate();
+  let location = useLocation();
 
   const onSubmitForm = (e) => {
     e.preventDefault();
@@ -23,27 +21,25 @@ const TrederComponent = () => {
     itemsService.saveItem(itemDetails).then((response) => {
       if (response.status == 201) {
         alert("Saved Data");
-        getAllItems();
+        navigate("/treder" + location.search);
       } else {
         alert("Error Has been occred Pleas Try Again");
       }
     });
   };
 
-  function handleUpdate() {}
-
   const resetForm = () => {
     setName("");
     setPrice(0);
   };
 
-  useEffect(() => {
-    getAllItems();
-  }, [getAllItems]);
   return (
     <div>
+      <h3>Save Item Details</h3>
+
       <form onSubmit={onSubmitForm}>
         <label>Name</label>
+        <br></br>
         <input
           type="text"
           value={name}
@@ -52,6 +48,7 @@ const TrederComponent = () => {
         <br></br>
 
         <label>Price</label>
+        <br></br>
         <input
           type="number"
           value={price}
@@ -61,28 +58,8 @@ const TrederComponent = () => {
 
         <button type="submit"> Save</button>
       </form>
-      <table>
-        <thead>
-          <tr>
-            <td>Actions</td>
-            <th>Name</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map((item, key) => (
-            <tr key={key}>
-              <td>
-                <button onClick={() => handleUpdate()}>Update</button>
-              </td>
-              <td>{item.name}</td>
-              <td>{item.price}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
     </div>
   );
 };
 
-export default TrederComponent;
+export default ItemDetailsComponent;

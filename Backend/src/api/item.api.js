@@ -53,8 +53,18 @@ const getAllItem = () => {
   return [...items.values()];
 };
 
+/*
+ *@description GetItemById
+ */
+
+const getIemById = (id) => {
+  const item = items.get(id);
+  return item;
+};
+
 module.exports = {
   saveItem,
   updateItem,
   getAllItem,
+  getIemById,
 };

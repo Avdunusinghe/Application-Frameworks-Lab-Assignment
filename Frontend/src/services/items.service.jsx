@@ -9,6 +9,12 @@ class ItemService {
   saveItem(itemDetails) {
     return axios.post(`${apiUrl}item`, itemDetails);
   }
+  getItemById(id) {
+    return axios.get(`${apiUrl}item/${id}`);
+  }
+  updateItem(itemDetails) {
+    return axios.put(`${apiUrl}item`, itemDetails);
+  }
 }
 
 export default new ItemService();
