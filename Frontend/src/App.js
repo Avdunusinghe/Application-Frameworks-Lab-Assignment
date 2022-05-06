@@ -2,7 +2,8 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import NavBar from "./component/common/UIElements/nav";
 import Customer from "./component/customer";
-import Treder from "./component/treder";
+import TrederComponent from "./component/pages/treder/treder-list/treder.list.component.jsx";
+
 const App = () => {
   return (
     <div>
@@ -10,7 +11,10 @@ const App = () => {
       <div>
         <Routes>
           <Route path="/"></Route>
-          <Route path="treder" element={<Treder></Treder>}></Route>
+          <Route
+            path="treder"
+            element={<TrederComponent></TrederComponent>}
+          ></Route>
           <Route path="customer" element={<Customer></Customer>}></Route>
         </Routes>
       </div>

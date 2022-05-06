@@ -1,7 +1,7 @@
 import React, { Component, useCallback, useEffect, useState } from "react";
-import itemsService from "../services/items.service";
+import itemsService from "../../../../services/items.service";
 
-const Treder = () => {
+const TrederComponent = () => {
   const [items, setItems] = useState([]);
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
@@ -29,6 +29,8 @@ const Treder = () => {
       }
     });
   };
+
+  function handleUpdate() {}
 
   const resetForm = () => {
     setName("");
@@ -62,6 +64,7 @@ const Treder = () => {
       <table>
         <thead>
           <tr>
+            <td>Actions</td>
             <th>Name</th>
             <th>Price</th>
           </tr>
@@ -69,6 +72,9 @@ const Treder = () => {
         <tbody>
           {items.map((item, key) => (
             <tr key={key}>
+              <td>
+                <button onClick={() => handleUpdate()}>Update</button>
+              </td>
               <td>{item.name}</td>
               <td>{item.price}</td>
             </tr>
@@ -79,4 +85,4 @@ const Treder = () => {
   );
 };
 
-export default Treder;
+export default TrederComponent;
